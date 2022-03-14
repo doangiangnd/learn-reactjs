@@ -13,11 +13,11 @@ function TodoFeature(props) {
             title: 'eat'
         },
         {
-            id: 1,
+            id: 2,
             title: 'sleep'
         },
         {
-            id: 1,
+            id: 3,
             title: 'code'
         }
     ];
