@@ -10,8 +10,8 @@ Pagination.PropTypesDefault = {
 }
 function Pagination(props) {
     const { pagination, onPageChange } = props;
-    const { _page, _limit, _toTalRows } = pagination;
-    const totalPages = Math.ceil(_toTalRows / _limit)
+    const { _page, _limit, _totalRows } = pagination;
+    const totalPages = Math.ceil(_totalRows / _limit)
 
     function handlePageChange(newPage) {
         if (onPageChange) {
