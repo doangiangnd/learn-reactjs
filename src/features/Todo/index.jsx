@@ -25,6 +25,7 @@ function TodoFeature(props) {
     ];
 
     const [todoList, setTodoList] = useState(initTodoList);
+    const [filterStatus, setFilterStatus] = useState('all');
     const handleTodoClick = (todo, idx) => {
         const newTodoList = [...todoList];
         console.log(todo, idx)
@@ -35,10 +36,29 @@ function TodoFeature(props) {
         setTodoList(newTodoList)
     }
 
+    const handleShowAllClick = () => {
+        setFilterStatus('all');
+    }
+
+    const handleCompletedClick = () => {
+        setFilterStatus('completed');
+    }
+
+    const handleShowNewClick = () => {
+        setFilterStatus('new');
+    }
+
+    const renderTodoList = todoList.filter(todo => filterStatus === 'all' || filterStatus === todo.status);
+    console.log('renderTodoList', renderTodoList);
     return (
         <div>
             TodoFeature
-            <TodoList todoList={todoList} onTodoClick={handleTodoClick} />
+            <TodoList todoList={renderTodoList} onTodoClick={handleTodoClick} />
+            <div>
+                <button onClick={handleShowAllClick}>Show all</button>
+                <button onClick={handleCompletedClick}>Show completed</button>
+                <button onClick={handleShowNewClick}>Show new</button>
+            </div>
         </div>
     );
 }
