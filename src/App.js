@@ -12,7 +12,7 @@ function App() {
   useEffect(() => {
     async function fetchPostList() {
       try {
-        const requestUrl = 'http://js-post-api.herokuapp.com/api/posts?_limit=10&_page=1';
+        const requestUrl = 'https://js-post-api.herokuapp.com/api/posts?_limit=10&_page=1';
         const response = await fetch(requestUrl);
         const responseJSON = await response.json();
         console.log({ responseJSON });
